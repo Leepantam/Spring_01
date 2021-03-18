@@ -7,42 +7,45 @@ public class MemberDTO {
 	// getter, setter
 	// 기본생성자 1개
 	
-	private String ID;
-	private String PW;
-	private String NAME;
-	private String PHONE;
-	private String EMAIL;
+	private String id;
+	private String pw;
+	private String name;
+	private String phone;
+	private String email;
 	
 	
-	public String getID() {
-		return ID;
+	public String getId() {
+		return id;
 	}
-	public void setID(String iD) {
-		ID = iD;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getPW() {
-		return PW;
+	public String getPw() {
+		return pw;
 	}
-	public void setPW(String pW) {
-		PW = pW;
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
-	public String getNAME() {
-		return NAME;
+	public String getName() {
+		return name;
 	}
-	public void setNAME(String nAME) {
-		NAME = nAME;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getPHONE() {
-		return PHONE;
+	public String getPhone() {
+		return phone;
 	}
-	public void setPHONE(String pHONE) {
-		PHONE = pHONE;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-	public String getEMAIL() {
-		return EMAIL;
+	public String getEmail() {
+		return email;
 	}
-	public void setEMAIL(String eMAIL) {
-		EMAIL = eMAIL;
+	public void setEmail(String email) {
+		this.email = email;
 	}
+	
+	
+	
 
 }
