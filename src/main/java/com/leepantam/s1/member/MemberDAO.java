@@ -21,11 +21,11 @@ public class MemberDAO {
 		String sql = "insert into users (id,pw,name,phone,email) values(?,?,?,?,?)";
 		
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, mDto.getID());
-		st.setString(2, mDto.getPW());
-		st.setString(3, mDto.getNAME());
-		st.setString(4, mDto.getPHONE());
-		st.setString(5, mDto.getEMAIL());
+		st.setString(1, mDto.getId());
+		st.setString(2, mDto.getPw());
+		st.setString(3, mDto.getName());
+		st.setString(4, mDto.getPhone());
+		st.setString(5, mDto.getEmail());
 		
 		int result = st.executeUpdate();
 		
@@ -49,15 +49,15 @@ public class MemberDAO {
 		
 		String sql = "select * from users where id=? and pw=?";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, mDto.getID());
-		st.setString(2, mDto.getPW());
+		st.setString(1, mDto.getId());
+		st.setString(2, mDto.getPw());
 		
 		ResultSet rs = st.executeQuery();
 		if(rs.next()) {
 			dto=new MemberDTO();
-			dto.setNAME(rs.getString("NAME"));
-			dto.setPHONE(rs.getString("PHONE"));
-			dto.setEMAIL(rs.getString("EMAIL"));
+			dto.setName(rs.getString("NAME"));
+			dto.setPhone(rs.getString("PHONE"));
+			dto.setEmail(rs.getString("EMAIL"));
 		} else {
 			dto=null;
 		}

@@ -26,8 +26,8 @@ public class MemberController {
 		MemberDTO mDto = new MemberDTO();
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		mDto.setID(id);
-		mDto.setPW(pw);
+		mDto.setId(id);
+		mDto.setPw(pw);
 		mDto = mServ.memberLogin(mDto);
 		System.out.println(mDto);
 	}
@@ -43,13 +43,8 @@ public class MemberController {
 	}
 
 	@RequestMapping(value="/member/memberJoin", method=RequestMethod.POST)	
-	public void memberJoin2(String id, String pw, String name, String phone, String email) throws Exception {
-		MemberDTO mDto = new MemberDTO();
-		mDto.setID(id);
-		mDto.setPW(pw);
-		mDto.setNAME(name);
-		mDto.setPHONE(phone);
-		mDto.setEMAIL(email);
+	public void memberJoin2(MemberDTO mDto) throws Exception {
+		
 		int result = mServ.memberJoin(mDto);
 		System.out.println(result);
 	}
