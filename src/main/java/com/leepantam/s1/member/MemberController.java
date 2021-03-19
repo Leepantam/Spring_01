@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,7 +23,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/member/memberLogin",method=RequestMethod.POST)
-	public void memeberLogin2(HttpServletRequest request) throws Exception {
+	public String memeberLogin(HttpServletRequest request) throws Exception {
 		MemberDTO mDto = new MemberDTO();
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
@@ -30,6 +31,9 @@ public class MemberController {
 		mDto.setPw(pw);
 		mDto = mServ.memberLogin(mDto);
 		System.out.println(mDto);
+		request.setAttribute("dto", mDto);
+		
+		return "/member/memberPage";
 	}
 	
 	//memberJoin     /member/memberJoin get
@@ -43,7 +47,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value="/member/memberJoin", method=RequestMethod.POST)	
-	public void memberJoin2(MemberDTO mDto) throws Exception {
+	public void memberJoin(MemberDTO mDto) throws Exception {
 		
 		int result = mServ.memberJoin(mDto);
 		System.out.println(result);
